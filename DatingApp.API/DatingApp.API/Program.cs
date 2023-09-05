@@ -53,18 +53,7 @@ builder.Services.AddAutoMapper(typeof(DatingRepository).Assembly);
 
 
 //jwt authentication checking
-var key = Encoding.UTF8.GetBytes("super secret key");
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = false,
-        ValidateAudience = false,
-    };
-});
 
 builder.Services.AddAuthorization();
 
